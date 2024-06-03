@@ -44,7 +44,7 @@ suite('Functional Tests', function () {
         })
         .end(function (err, res) {
           assert.equal(res.status, 200);
-          assert.notTypeOf(res.type, 'application/json')
+          assert.equal(res.type, 'application/json')
           assert.equal(res.body.name, 'Cristoforo')
           assert.equal(res.body.surname, 'Colombo')
           done();
@@ -60,7 +60,7 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
-const { application } = require('express');
+const { application, json } = require('express');
 
 suite('Functional Tests with Zombie.js', function () {
   this.timeout(5000);
